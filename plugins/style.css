@@ -1,0 +1,305 @@
+body {
+  font-family: "Roboto", "Noto Sans TC", sans-serif;
+  background-color: #525457;
+  color: #fff;
+}
+
+#lokiMenu {
+  .nav-link {
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 0%;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: width 0.3s;
+    }
+
+    &.active::after {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #lokiMenu .nav-link::after {
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 575px) {
+  #lokiSlider .carousel-item .carousel-caption {
+    left: 16px;
+    right: 16px;
+
+    h2 {
+      letter-spacing: 2px;
+    }
+  }
+}
+
+#lokiSlider {
+  .carousel-indicators {
+    gap: 10px;
+
+    >button {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+  }
+
+  .carousel-item {
+    padding-bottom: 240px;
+    background-color: #282c34;
+
+    img {
+      filter: grayscale(50%) sepia(80%);
+    }
+
+    .carousel-caption {
+      bottom: unset;
+      top: 63%;
+
+      h2 {
+        text-shadow: 0px -3px 3px black;
+        letter-spacing: 10px;
+      }
+    }
+
+    &::after {
+      content: '';
+      background-image: url("data:image/svg+xml;charset=UTF-8, %3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3e%3cg opacity='0.5' stroke-width='1' stroke='%23000' fill='none'%3e%3cline y2='10' x2='10' y1='0' x1='0' /%3e%3cline y2='15' x2='5' y1='5' x1='-5' /%3e%3cline y2='5' x2='15' y1='-5' x1='5' /%3e%3c/g%3e%3c/svg%3e");
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  button>i {
+    font-size: 2.5rem;
+    background: #000;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+
+
+@media (min-width: 992px) {
+  #lokiPallet article {
+    padding-top: 290px;
+
+    >.col:nth-child(odd) {
+      transform: translateY(-50%);
+      padding-bottom: 160px;
+    }
+
+    .card {
+      overflow: hidden;
+
+      img {
+        transform: scale(1.15) rotate(5deg);
+        transition: 0.3s;
+      }
+
+      .card-img-overlay {
+        transform: scale(0);
+        transition: 0.3s;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.3) rotate(0deg);
+        }
+
+        .card-img-overlay {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+
+section:not(#lokiSlider) {
+  padding-top: 110px;
+}
+
+#lokiPark {
+  background: url("https://picsum.photos/1920/1200/?random=10") #3338 no-repeat center/cover fixed;
+  background-blend-mode: lighten;
+
+  article .card-img-overlay {
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      background-color: #0005;
+      backdrop-filter: blur(5px);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0%;
+    }
+
+    .card-title {
+      text-shadow: 1px 2px 3px #000;
+      opacity: 1;
+      z-index: 5;
+    }
+  }
+
+}
+
+@media (min-width: 992px) {
+  #lokiPark article .card-img-overlay {
+    overflow: hidden;
+
+    &::after {
+      background-color: #0009;
+      transition: top 0.3s;
+      top: 100%;
+    }
+
+    .card-title {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        top: 0%;
+      }
+
+      .card-title {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+#lokiService {
+  background: url("https://picsum.photos/1920/1200/?random=10") #3338 no-repeat center/cover fixed;
+  background-blend-mode: luminosity;
+}
+
+#lokiRule {
+  .lokiGallery {
+    width: 700px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+
+    ul {
+      position: absolute;
+      list-style: none;
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      min-width: 225px;
+      height: 300px;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      box-shadow: 0 0 5px black;
+
+      &:nth-child(odd) {
+        left: 10%;
+        top: 10%;
+        transform: rotate(5deg);
+      }
+
+      &:nth-child(even) {
+        right: 10%;
+        bottom: 10%;
+        transform: rotate(-15deg);
+      }
+
+      li {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        animation: slideImg 15s linear infinite;
+
+        &:nth-child(1) {
+          animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 5s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 10s;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          padding: 8px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes slideImg {
+
+  0%,
+  33%,
+  100% {
+    opacity: 0;
+  }
+
+  1.5%,
+  31.5% {
+    opacity: 1;
+  }
+}
+
+
+#lokiContact {
+  background: url("https://picsum.photos/1920/1080/?random=10") #000 no-repeat center/cover;
+  background-attachment: fixed;
+  background-blend-mode: luminosity;
+
+  #ff-compose {
+    /* padding-top: 120px; */
+  }
+
+  .ff-form {
+    backdrop-filter: blur(10px);
+    background: rgb(255, 193, 7, 0.3);
+    border-radius: 5px;
+    min-height: 400px;
+  }
+
+  #ff-title-root {
+    display: none;
+    /* margin: 3rem 0;
+    border-left: 5px solid white;
+    font-size: 2rem;
+    padding: 0 0 0 1rem; */
+  }
+
+  .ff-secfields {
+    height: 280px;
+  }
+
+
+}
